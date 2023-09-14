@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>@yield('page-title')</title>
+        @include('partials.head-imports')
     </head>
     <body>
        
@@ -15,5 +16,7 @@
         </main>
 
         @include('partials.main-footer')
+
+        @include('partials.body-imports')
     </body>
 </html>
