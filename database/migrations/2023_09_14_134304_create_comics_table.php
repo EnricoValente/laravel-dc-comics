@@ -17,11 +17,11 @@ return new class extends Migration
             $table->text('description');
             $table->string('thumb', 1020);
             $table->unsignedDecimal('price', 4, 2);
-            $table->string('series', 50);
+            $table->text('series');
             $table->date('sale_date');
             $table->string('type', 30);
-            $table->string('artists', 60);
-            $table->string('writers', 60);
+            $table->text('artists');
+            $table->text('writers');
             $table->timestamps();
         });
     }
