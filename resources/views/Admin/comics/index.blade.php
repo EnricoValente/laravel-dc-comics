@@ -22,6 +22,8 @@ Laravel dc comics
                         <th scope="col">Type</th>
                         <th scope="col">Artists</th>
                         <th scope="col">Writers</th>
+                        <th scope="col">Azioni</th>
+
 
                       </tr>
                     </thead>
@@ -40,6 +42,13 @@ Laravel dc comics
                         <td>{{$comic->type}}</td>
                         <td>{{$comic->artists}}</td>
                         <td>{{$comic->writers}}</td>
+                        <td>
+                            <a href="{{route('comics.edit', ['comic'=>$comic->id])}}" class="btn btn-success">
+                                Modifica
+                            </a>
+                        </td>
+
+
 
                         </tr>
                         @endforeach   
