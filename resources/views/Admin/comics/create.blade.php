@@ -23,8 +23,13 @@ Aggiungi
 
                 <div class="mb-3">
                     <label for="title" class="form-label">Title</label>
-                    <input type="text" maxlength="100" class="form-control" id="title" name="title" placeholder="Enter value..."
-                       >
+                    <input type="text" maxlength="100" class="form-control @error('title') is-invalid @enderror" id="title" name="title" placeholder="Enter value...">
+
+                    @error('title')
+                    <div class="alert alert-danger my-2">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
@@ -41,7 +46,7 @@ Aggiungi
 
                 <div class="mb-3">
                     <label for="price" class="form-label">Price</label>
-                    <input type="number" min="1" max="99.99" class="form-control" id="price" name="price" placeholder="Enter value..."
+                    <input type="number" min="1" max="100" class="form-control" id="price" name="price" placeholder="Enter value..."
                         >
                 </div>
 

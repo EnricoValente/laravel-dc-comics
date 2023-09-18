@@ -30,6 +30,32 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title'=>'required|max:100',
+            'description'=>'required',
+            'thumb'=>'nullable|max:1020',
+            'price'=>'required|numeric|min:1|max:100',
+            'series'=>'required',
+            'sale_date'=>'required|date',
+            'type'=>'required|max:30',
+            'artists'=>'nullable',
+            'writers'=>'nullable',
+        ], [
+            'title.required'=>'Il titolo è obbligatorio',
+            'title.max'=>'Il titolo può contenere al massimo 100 caratteri',
+            'descripton.required'=>'La descrizione è obbligatoria',
+            'thumb.max'=>'Il link immagine può avere al massimo 1020 caratteri',
+            'price.required'=>'Il prezzo è obbligatorio',
+            'price.numeric'=>'Il prezzo deve essere un numero',
+            'price.min'=>'Il prezzo deve essere minimo di 1',
+            'price.max'=>'Il prezzo può essere al massimo di 100',
+            'series.required'=>'Questo campo è obbligatorio',
+            'sale_date.required'=>'Questo campo è obbligatorio',
+            'type.required'=>'Questo campo è obbligatorio',
+            'type.max'=>'Questo campo può essere lungo al massimo 30 caratteri',
+
+        ]);
+    
         $formData=$request->all();
         $comic = new Comic();
         $comic->title=$formData['title'];
@@ -39,8 +65,8 @@ class ComicController extends Controller
         $comic->series=$formData['series'];
         $comic->sale_date=$formData['sale_date'];
         $comic->type=$formData['type'];
-        // $comic->artists=implode(', ',$formData['artists']);
-        // $comic->writers=implode(', ',$formData['writers']);
+        //  $comic->artists=implode(', ',$formData['artists']);
+        //  $comic->writers=implode(', ',$formData['writers']);
         $comic->save();
         return redirect()->route('comics.index');
     }
