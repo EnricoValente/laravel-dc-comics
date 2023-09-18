@@ -46,6 +46,10 @@ Laravel dc comics
                             <a href="{{route('comics.edit', ['comic'=>$comic->id])}}" class="btn btn-success">
                                 Modifica
                             </a>
+
+                            <a href="{{route('comics.create', ['comic'=>$comic->id])}}" class="btn btn-primary">
+                                Aggiungi
+                            </a>
                         </td>
 
 
