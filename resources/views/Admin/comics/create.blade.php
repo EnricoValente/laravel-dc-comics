@@ -34,31 +34,57 @@ Aggiungi
 
                 <div class="mb-3">
                     <label for="series" class="form-label">Series</label>
-                    <input type="text"  class="form-control" id="series" name="series" placeholder="Enter value..." required
-                        >
+                    <input type="text"  class="form-control @error('series') is-invalid @enderror" id="series" name="series" placeholder="Enter value..." >
+
+                    @error('series')
+                    <div class="alert alert-danger my-2">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="type" class="form-label">Type</label>
-                    <input type="text" maxlength="30" class="form-control" id="type" name="type" placeholder="Enter value..." required
-                        >
+                    <input type="text" maxlength="30" class="form-control @error('type') is-invalid @enderror" id="type" name="type" placeholder="Enter value..." >
+                    @error('type')
+                    <div class="alert alert-danger my-2">
+                        {{$message}}
+                    </div>
+                    @enderror
+
                 </div>
 
                 <div class="mb-3">
                     <label for="price" class="form-label">Price</label>
-                    <input type="number" min="1" max="100" class="form-control" id="price" name="price" placeholder="Enter value..."
-                        >
+                    <input type="number" min="1" max="100" class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="Enter value...">
+
+                    @error('price')
+                    <div class="alert alert-danger my-2">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="sale_date" class="form-label">sale_date</label>
-                    <input type="date"  class="form-control" id="sale_date" name="sale_date" placeholder="Enter value..." required
-                        >
+                    <input type="date"  class="form-control @error('sale_date') is-invalid @enderror" id="sale_date" name="sale_date" placeholder="Enter value..." >
+
+                    @error('sale_date')
+                    <div class="alert alert-danger my-2">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                    <textarea class="form-control @error('description') is-invalid @enderror" id="description" name="description" rows="3"></textarea>
+
+                    @error('description')
+                    <div class="alert alert-danger my-2">
+                        {{$message}}
+                    </div>
+                    @enderror
                 </div>
 
                 <div class="mb-3">
