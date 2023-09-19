@@ -43,7 +43,7 @@ class ComicController extends Controller
         ], [
             'title.required'=>'Il titolo è obbligatorio',
             'title.max'=>'Il titolo può contenere al massimo 100 caratteri',
-            'descripton.required'=>'La descrizione è obbligatoria',
+            'description.required'=>'La descrizione è obbligatoria',
             'thumb.max'=>'Il link immagine può avere al massimo 1020 caratteri',
             'price.required'=>'Il prezzo è obbligatorio',
             'price.numeric'=>'Il prezzo deve essere un numero',
@@ -65,8 +65,8 @@ class ComicController extends Controller
         $comic->series=$formData['series'];
         $comic->sale_date=$formData['sale_date'];
         $comic->type=$formData['type'];
-        //  $comic->artists=implode(', ',$formData['artists']);
-        //  $comic->writers=implode(', ',$formData['writers']);
+        $comic->artists=$formData['artists'];
+        $comic->writers=$formData['writers'];
         $comic->save();
         return redirect()->route('comics.index');
     }
